@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Fighter
+  - Normal
+  - Speedy
+  - Blue
+  - Black
+  - Orange
+  - Green
   layers:
   - Default
   - TransparentFX

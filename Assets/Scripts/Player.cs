@@ -4,7 +4,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     //config
-    
     [Header("Player Movement")]
     [SerializeField] int maxHealth = 300;
     [SerializeField] float moveSpeed = 10f;
@@ -23,7 +22,6 @@ public class Player : MonoBehaviour
 
 
     int currentHealth;
-    Coroutine firingCoroutine;
 
     //
     float xMin;
@@ -36,18 +34,27 @@ public class Player : MonoBehaviour
     {
         SetupMoveBoundaries();
         currentHealth = maxHealth;
+
+        StartCoroutine(FireContinuously());
     }
 
     // Update is called once per frame
     void Update()
     {
         Move();
-        Fire();
+        //Fire();
+
+        if (Input.GetButtonDown("Cancel") == true)
+        {
+            Application.Quit();
+        }
     }
 
     private void Fire()
     {
-        if (Input.GetButtonDown("Fire1"))
+   
+
+        /*if (Input.GetButtonDown("Fire1"))
         {
             firingCoroutine = StartCoroutine(FireContinuously());
         }
@@ -55,7 +62,8 @@ public class Player : MonoBehaviour
         if (Input.GetButtonUp("Fire1"))
         {
            StopCoroutine(firingCoroutine);
-        }
+        }*/
+
 
 
     }
@@ -64,10 +72,27 @@ public class Player : MonoBehaviour
     {
         while (true)
         {
-            GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
-            laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
-            AudioSource.PlayClipAtPoint(shootSound, Camera.main.transform.position, shootVolume);
-            yield return new WaitForSeconds(projectileFiringperiod);
+            if (CompareTag("Fighter"))
+            {
+                GameObject laser1 = Instantiate(laserPrefab, (transform.position - new Vector3(0.45f, 0.1f, 0f)), Quaternion.identity) as GameObject;
+                GameObject laser2 = Instantiate(laserPrefab, (transform.position + new Vector3(0.45f, - 0.1f, 0f)), Quaternion.identity) as GameObject;
+
+                laser1.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+                laser2.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+
+                AudioSource.PlayClipAtPoint(shootSound, Camera.main.transform.position, shootVolume);
+                yield return new WaitForSeconds(projectileFiringperiod);
+            }
+            else
+            {
+                GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity) as GameObject;
+
+                laser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, projectileSpeed);
+
+                AudioSource.PlayClipAtPoint(shootSound, Camera.main.transform.position, shootVolume);
+                yield return new WaitForSeconds(projectileFiringperiod);
+            }
+           
         }
         
     }

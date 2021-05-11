@@ -10,7 +10,7 @@ public class WaveConfig : ScriptableObject
     [SerializeField] float timeBetweenSpawns = 0.5f;
     [SerializeField] float spawnRandomFactor = 0.3f;
     [SerializeField] int numberOfEnemies = 5;
-    [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float moveSpeedAddition = 0f;
 
     public List<Transform> GetWaypoints() 
     {
@@ -32,7 +32,11 @@ public class WaveConfig : ScriptableObject
     public float GetspawnRandomFactor() { return spawnRandomFactor; }
 
     public int GetnumberOfEnemies() { return numberOfEnemies; }
-    public float GetmoveSpeed() { return moveSpeed; }
+    public float GetmoveSpeed() {
+
+        return moveSpeedAddition + enemy.GetComponent<Enemy>().GetMoveSpeed(); 
+    
+    }
 
 
 }

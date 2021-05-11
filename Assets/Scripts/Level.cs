@@ -24,8 +24,12 @@ public class Level : MonoBehaviour
     public void LoadGameScene()
     {
         SceneManager.LoadScene("Game");
+    }
 
-        FindObjectOfType<GameSession>().ResetGame();
+    public void PlayAgain()
+    {
+        FindObjectOfType<GameSession>().ResetSesh();
+        SceneManager.LoadScene("Game");
     }
 
     public void LoadMainMenu()
@@ -36,5 +40,11 @@ public class Level : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void PickPlayer()
+    {
+        FindObjectOfType<GameSession>().ResetGame();
+        SceneManager.LoadScene("Pick Player");
     }
 }

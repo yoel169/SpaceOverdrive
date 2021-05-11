@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     [Header("Stats")]
     [SerializeField] float health = 100;
     [SerializeField] int scoreToGive = 5;
+    [SerializeField] float moveSpeed = 1f;
 
     [Header("Shooting")]
     float shotCounter;
@@ -34,7 +35,11 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Shoot();
+        if(! CompareTag("Green"))
+        {
+            Shoot();
+        }
+        
     }
 
     private void Shoot()
@@ -84,5 +89,10 @@ public class Enemy : MonoBehaviour
 
         Destroy(explosion, durationOfExplosion);
 
+    }
+
+    public float GetMoveSpeed()
+    {
+        return moveSpeed;
     }
 }
