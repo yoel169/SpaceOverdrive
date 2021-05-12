@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [Header("Levels and waves")]
     [SerializeField] List<WaveHolder> levels;
     [SerializeField] int startingLevel = 0;
-    [SerializeField] bool looping = false;
+    [SerializeField] float timeBetweenLevels = 3f;
+    [SerializeField] float timeBetweenWaves = 0f;
+    //[SerializeField] bool looping = false;
+
+    [Header("Audios")]
+    [SerializeField] AudioClip nextLevelAudio;
+    [SerializeField] AudioClip winAudio;
+    [SerializeField] AudioClip spawnAudio;
+
     GameSession session;
 
     // Start is called before the first frame update
@@ -32,8 +41,28 @@ public class EnemySpawner : MonoBehaviour
 
             yield return StartCoroutine(SpawnAllWaves(currentLevel));
 
+            AudioSource.PlayClipAtPoint(nextLevelAudio, Camera.main.transform.position);
+
+            yield return new WaitForSeconds(timeBetweenLevels);
+
             session.IncreaseLevel();
         }
+
+        print("all levels done");
+
+        yield return new WaitForSeconds(5);
+
+        AudioSource.PlayClipAtPoint(winAudio, Camera.main.transform.position);
+
+        print("played win jingle");
+
+        session.Win();
+
+        yield return new WaitForSeconds(3);
+
+        FindObjectOfType<Level>().LoadGameOver();
+
+        print("loading game over");
     }
 
     private void SetLevel()
@@ -54,6 +83,8 @@ public class EnemySpawner : MonoBehaviour
 
             print("Player Spawned!");
 
+            AudioSource.PlayClipAtPoint(spawnAudio, Camera.main.transform.position);
+
             yield return StartCoroutine(SpawnLevels());
         }
     }
@@ -69,7 +100,10 @@ public class EnemySpawner : MonoBehaviour
             var currentWave = waves[waveIndex];
 
             yield return StartCoroutine(SpawnEnemies(currentWave));
+
+            yield return new WaitForSeconds(timeBetweenWaves);
         }
+
     }
 
     private IEnumerator SpawnEnemies(WaveConfig config)

@@ -121,7 +121,7 @@ public class Player : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-
+            currentHealth = 0;
             Die();
           
         }
@@ -134,7 +134,7 @@ public class Player : MonoBehaviour
     }
 
     private void Die()
-    {
+    { 
         FindObjectOfType<Level>().LoadGameOver();
         Destroy(gameObject);
         AudioSource.PlayClipAtPoint(dieSound, Camera.main.transform.position, dieSoundVolume);

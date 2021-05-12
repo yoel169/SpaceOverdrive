@@ -7,6 +7,7 @@ public class GameSession : MonoBehaviour
     int score = 0;
     int currentLevelIndex = 0;
     bool levelSet = false; //to avoid reseting the level every time, only needed once
+    bool win = false;
 
     [Header("Player")]
     [SerializeField]  Player myPlayer;
@@ -110,5 +111,15 @@ public class GameSession : MonoBehaviour
     {    
         currentLevelIndex ++;
         FindObjectOfType<LevelDisplay>().UpdateLevel();
+    }
+
+    public void Win()
+    {
+        win = true;
+    }
+
+    public bool GetWin()
+    {
+        return win;
     }
 }

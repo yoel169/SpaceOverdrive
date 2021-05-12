@@ -18,8 +18,13 @@ public class HealthDisplay : MonoBehaviour
     void Update()
     {
        
-       scoreText.text = player.GetHealth().ToString();
-         
-
+        if(player != null)
+        {
+            scoreText.text = player.GetHealth().ToString();
+        }
+        else
+        {
+            player = FindObjectOfType<Player>();
+        }
     }
 }

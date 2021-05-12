@@ -10098,6 +10098,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 4504548922018989627, guid: 2f34faf50d0eae34ea512735bdd78e7e, type: 3}
+      propertyPath: winAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 88268ce9dcf1068459c113d27e479625, type: 3}
+    - target: {fileID: 4504548922018989627, guid: 2f34faf50d0eae34ea512735bdd78e7e, type: 3}
+      propertyPath: spawnAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 326730cf9878f3b44851450be268778d, type: 3}
+    - target: {fileID: 4504548922018989627, guid: 2f34faf50d0eae34ea512735bdd78e7e, type: 3}
+      propertyPath: nextLevelAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 0941e0d556810ea438baf99b495e8612, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f34faf50d0eae34ea512735bdd78e7e, type: 3}
 --- !u!1001 &8861118348827943234

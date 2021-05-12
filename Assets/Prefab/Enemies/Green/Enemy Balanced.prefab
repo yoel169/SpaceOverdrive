@@ -107,7 +107,7 @@ MonoBehaviour:
   projectileSpeed: -10
   laserPrefab: {fileID: 4348509766458908978, guid: 73bc435ad2c87cd4284d3646b9cf7816, type: 3}
   particleExplosionPrefab: {fileID: 4278989927037525870, guid: 550c4a2dd9950374fac03cebf0f95f4f, type: 3}
-  durationOfExplosion: 1
+  durationOfExplosion: 0.5
   dieSound: {fileID: 8300000, guid: 7ef8baae556c7044190419962154474c, type: 3}
   shootSound: {fileID: 8300000, guid: 941e66eef0a5a174abf610be84bc3240, type: 3}
   dieSoundVolume: 0.75

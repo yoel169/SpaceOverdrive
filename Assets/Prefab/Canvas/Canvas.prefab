@@ -560,7 +560,7 @@ GameObject:
   - component: {fileID: 1786646660}
   - component: {fileID: 1786646663}
   - component: {fileID: 1786646662}
-  - component: {fileID: 739812647}
+  - component: {fileID: 6850945623968660260}
   m_Layer: 5
   m_Name: Health Text
   m_TagString: Untagged
@@ -684,7 +684,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &739812647
+--- !u!114 &6850945623968660260
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
