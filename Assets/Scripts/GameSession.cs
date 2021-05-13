@@ -12,6 +12,7 @@ public class GameSession : MonoBehaviour
     [Header("Player")]
     [SerializeField]  Player myPlayer;
     [SerializeField] GameObject playerPrefab;
+    int playerIndex = 0;
 
     private void Awake()
     {
@@ -72,6 +73,21 @@ public class GameSession : MonoBehaviour
     {
         myPlayer = player.GetComponent<Player>();
         playerPrefab = player;
+
+        if (player.CompareTag("Normal")){
+            playerIndex = 0;
+        }else if (player.CompareTag("Speedy"))
+        {
+            playerIndex = 1;
+        }else if (player.CompareTag("Fighter"))
+        {
+            playerIndex = 2;
+        }
+    }
+
+    public int GetPlayerIndex()
+    {
+        return playerIndex;
     }
 
     public GameObject GetPlayerPreFab()

@@ -11,6 +11,7 @@ TagManager:
   - Black
   - Orange
   - Green
+  - Paths
   layers:
   - Default
   - TransparentFX

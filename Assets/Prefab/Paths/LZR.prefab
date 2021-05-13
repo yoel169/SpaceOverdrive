@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 6143091953018449492}
   m_Layer: 0
   m_Name: LZR
-  m_TagString: Untagged
+  m_TagString: Paths
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

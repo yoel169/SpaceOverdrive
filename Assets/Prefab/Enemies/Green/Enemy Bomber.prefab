@@ -97,14 +97,14 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.64, y: 1.68}
+    oldSize: {x: 1.0789474, y: 1.1052631}
     newSize: {x: 0.93, y: 0.84}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -112,22 +112,21 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.12717277, y: 0.8322366}
-      - {x: 0.13881826, y: 0.6608451}
-      - {x: -0.1207746, y: 0.6377964}
-      - {x: -0.10925457, y: 0.81238127}
-      - {x: -0.12810022, y: 0.83611804}
-      - {x: -0.35578158, y: 0.8555272}
-      - {x: -0.6829544, y: 0.65907264}
-      - {x: -0.81223637, y: 0.5862452}
-      - {x: -0.8083545, y: -0.42050856}
-      - {x: -0.26472697, y: -0.70413595}
-      - {x: -0.21775827, y: -0.8389057}
-      - {x: 0.22945392, y: -0.84}
-      - {x: 0.2657171, y: -0.7223544}
-      - {x: 0.8161182, y: -0.39789075}
-      - {x: 0.81223625, y: 0.5850636}
-      - {x: 0.38919967, y: 0.84}
+    - - {x: 0.09238078, y: 0.54967695}
+      - {x: 0.089426175, y: 0.42424458}
+      - {x: -0.085630655, y: 0.4324432}
+      - {x: -0.08866215, y: 0.54477}
+      - {x: -0.23807275, y: 0.55358154}
+      - {x: -0.2847045, y: 0.5265914}
+      - {x: -0.52765536, y: 0.36034572}
+      - {x: -0.52174616, y: -0.25370488}
+      - {x: -0.16936111, y: -0.46041238}
+      - {x: -0.1315408, y: -0.55263156}
+      - {x: 0.14373612, y: -0.53585434}
+      - {x: 0.17798764, y: -0.4492209}
+      - {x: 0.5217461, y: -0.25831267}
+      - {x: 0.5276554, y: 0.39016712}
+      - {x: 0.24432823, y: 0.55558616}
 --- !u!114 &4101245887456541108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,9 +139,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cd9fd4a0da2e9a4a9e38b5a13c7fe11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
-  scoreToGive: 30
-  moveSpeed: 3
+  health: 300
+  scoreToGive: 20
+  moveSpeed: 5
   minBetweenShots: 0.2
   maxBetweenShots: 3
   projectileSpeed: -5

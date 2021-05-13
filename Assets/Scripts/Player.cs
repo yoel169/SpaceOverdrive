@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     //config
     [Header("Player Movement")]
     [SerializeField] int maxHealth = 300;
+    [SerializeField] int startingLives = 3;
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float padding = 1f;
 
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
 
 
     int currentHealth;
+    int currentLives;
 
     //
     float xMin;
@@ -34,7 +36,7 @@ public class Player : MonoBehaviour
     {
         SetupMoveBoundaries();
         currentHealth = maxHealth;
-
+        currentLives = startingLives;
         StartCoroutine(FireContinuously());
     }
 
@@ -121,9 +123,17 @@ public class Player : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            currentHealth = 0;
-            Die();
-          
+            currentLives--;
+
+            if (currentLives <= 0)
+            {
+                Die();
+            }
+            else{
+
+                currentHealth = maxHealth;
+
+            }
         }
  
     }
@@ -135,7 +145,7 @@ public class Player : MonoBehaviour
 
     private void Die()
     { 
-        FindObjectOfType<Level>().LoadGameOver();
+        FindObjectOfType<SceneSelector>().LoadGameOver();
         Destroy(gameObject);
         AudioSource.PlayClipAtPoint(dieSound, Camera.main.transform.position, dieSoundVolume);
     }
@@ -148,5 +158,11 @@ public class Player : MonoBehaviour
 
         yMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y + padding;
         yMax = gameCamera.ViewportToWorldPoint(new Vector3(0, 1, 0)).y - padding;
+    }
+
+
+    public int GetCurrentLives()
+    {
+        return currentLives;
     }
 }

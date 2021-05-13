@@ -70,8 +70,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6143091953018449492}
   m_Layer: 0
-  m_Name: Verical
-  m_TagString: Untagged
+  m_Name: HT
+  m_TagString: Paths
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

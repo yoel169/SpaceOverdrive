@@ -9,13 +9,13 @@ public class PlayerPicker : MonoBehaviour
     [SerializeField] GameObject [] playerPrefabs;
 
     GameSession session;
-    Level level;
+    SceneSelector sceneSelector;
 
     // Start is called before the first frame update
     void Start()
     {
         session = FindObjectOfType<GameSession>();
-        level = FindObjectOfType<Level>();
+        sceneSelector = FindObjectOfType<SceneSelector>();
     }
 
     /**
@@ -24,6 +24,6 @@ public class PlayerPicker : MonoBehaviour
     public void OnPlayerSelect(int index)
     {
         session.SetPlayer(playerPrefabs[index]);
-        level.LoadGameScene();
+        sceneSelector.LoadGameScene();
     }
 }

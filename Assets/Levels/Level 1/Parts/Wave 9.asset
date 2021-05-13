@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a49041732e8a241bc6f71ce1595886, type: 3}
+  m_Name: Wave 9
+  m_EditorClassIdentifier: 
+  parts:
+  - {fileID: 11400000, guid: afd4ba14e074a7d4991b8979a4e43839, type: 2}
+  - {fileID: 11400000, guid: 6588e62782143fa4b97f67fbc78508d1, type: 2}
+  - {fileID: 11400000, guid: 3b9b20d1c1cda214ca31b53a3c23ccf3, type: 2}
+  - {fileID: 11400000, guid: 7cc02fa1cdb67e841972473e519d2e45, type: 2}
+  - {fileID: 11400000, guid: c6235e3072adc484c9c0ec5f1839fce3, type: 2}

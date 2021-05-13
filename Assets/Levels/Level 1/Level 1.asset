@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b19148f93c70d4098405ed735a6dc2, type: 3}
+  m_Name: Level 1
+  m_EditorClassIdentifier: 
+  waves:
+  - {fileID: 11400000, guid: a080afd432369a044a3bdf138434b43e, type: 2}
+  - {fileID: 11400000, guid: 7298b5d655ece1b47a67add4f94cd682, type: 2}
+  - {fileID: 11400000, guid: 6614854794635fb4cb8941cbad9d2f6e, type: 2}
+  - {fileID: 11400000, guid: 0b5b2202519a315489d98959fdb3797b, type: 2}
+  - {fileID: 11400000, guid: d7bd5c857c7e228419a5e3382023df00, type: 2}
+  - {fileID: 11400000, guid: 4a6dcbd116ab64b44a109eb4ae1a2e2f, type: 2}
+  - {fileID: 11400000, guid: ae88620b7d67f8f4785ab256f0a29150, type: 2}
+  - {fileID: 11400000, guid: 96e9a96328514b3449477b85837519ce, type: 2}
+  - {fileID: 11400000, guid: 3523f1b06c9297141988f1f3994877db, type: 2}
+  - {fileID: 11400000, guid: e4f69b79f2c3fa74da390da7cde4aedf, type: 2}
+  timeBetweenWaves: 0.5
