@@ -10,26 +10,42 @@ public class Player : MonoBehaviour
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float padding = 1f;
 
-    [Header("Projectile")]
-    [SerializeField] GameObject laserPrefab;
-    [SerializeField] float projectileSpeed = 10f;
-    [SerializeField] float projectileFiringperiod = 0.1f;
-
     [Header("Sound")]
     [SerializeField] AudioClip dieSound;
     [SerializeField] AudioClip shootSound;
     [SerializeField] [Range(0, 10)] float dieSoundVolume = 0.75f;
     [SerializeField] [Range(0, 10)] float shootVolume = 0.25f;
 
+    [Header("Shields")]
+    [SerializeField] GameObject shieldPrefab;
+    [SerializeField] float shieldDuration = 3f;
+    [SerializeField] float rechargeRate = 0.2f;
+    [SerializeField] float timeToRecharge = 6f;
 
+    [Header("Projectile")]
+    [SerializeField] GameObject laserPrefab;
+    [SerializeField] float projectileSpeed = 10f;
+    [SerializeField] float projectileFiringperiod = 0.1f;
+
+    //shields
+    float currentShields;
+    GameObject shieldObject;
+    Coroutine shieldsC;
+    Coroutine rechargeShieldsC;
+
+    //health and life
     int currentHealth;
     int currentLives;
 
-    //
+    //positions
     float xMin;
     float xMax;
     float yMin;
     float yMax;
+
+    //UI bars
+    HealthBar healthBar;
+    ShieldBar shieldBar;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +53,15 @@ public class Player : MonoBehaviour
         SetupMoveBoundaries();
         currentHealth = maxHealth;
         currentLives = startingLives;
+
+        healthBar = FindObjectOfType<HealthBar>();
+        healthBar.SetMaxValue(maxHealth);
+
+        shieldBar = FindObjectOfType<ShieldBar>();
+        shieldBar.SetMaxValue(shieldDuration);
+
+        currentShields = shieldDuration;
+
         StartCoroutine(FireContinuously());
     }
 
@@ -50,6 +75,60 @@ public class Player : MonoBehaviour
         {
             Application.Quit();
         }
+
+        if (Input.GetKeyDown(KeyCode.C ) && currentShields > 0){
+
+            if (rechargeShieldsC != null) { StopCoroutine(rechargeShieldsC); }
+            shieldsC = StartCoroutine(TurnOnShields());
+        }
+
+        if (Input.GetKeyUp(KeyCode.C))
+        {
+            if(currentShields > 0)
+            {
+                StopCoroutine(shieldsC);
+                Destroy(shieldObject);
+                StartCoroutine(RechargeShields());
+            }
+           
+        }
+    }
+
+    private IEnumerator TurnOnShields ()
+    {
+
+        Vector3 pos = transform.position; // + new Vector3(0,60,0);
+
+        shieldObject = Instantiate(shieldPrefab, pos, Quaternion.identity, transform);
+
+        while (currentShields > 0)
+        {
+           
+            currentShields -= 0.2f;
+            shieldBar.SetSlider(currentShields);
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        currentShields = 0;
+
+        Destroy(shieldObject);
+
+        yield return new WaitForSeconds(timeToRecharge);
+        StartCoroutine(RechargeShields());
+    }
+
+    private IEnumerator RechargeShields()
+    {
+
+        while (currentShields < shieldDuration)
+        {
+            yield return new WaitForSeconds(rechargeRate);
+            currentShields += rechargeRate;
+            shieldBar.SetSlider(currentShields);
+
+        }
+
+        currentShields = shieldDuration;
     }
 
     private void Fire()
@@ -65,8 +144,6 @@ public class Player : MonoBehaviour
         {
            StopCoroutine(firingCoroutine);
         }*/
-
-
 
     }
 
@@ -135,6 +212,8 @@ public class Player : MonoBehaviour
 
             }
         }
+
+        healthBar.SetSlider(currentHealth);
  
     }
 

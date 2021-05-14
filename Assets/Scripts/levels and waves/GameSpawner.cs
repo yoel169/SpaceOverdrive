@@ -6,9 +6,9 @@ public class GameSpawner : MonoBehaviour
 {
     [Header("Levels and waves")]
     [SerializeField] Chapter [] chapterPack;
-    //[SerializeField] int startingLevel = 0;
-    //[SerializeField] float timeBetweenLevels = 3f;
-    //[SerializeField] float timeBetweenWaves = 0f;
+    [SerializeField] int startingChapter = 1;
+    [SerializeField] int startingLevel = 1;
+
     //[SerializeField] bool looping = false;
 
     [Header("Audios")]
@@ -19,7 +19,6 @@ public class GameSpawner : MonoBehaviour
     GameSession session;
     GameObject enemies;
     int partCounter = 0;
-
 
     // Start is called before the first frame update
     IEnumerator Start()
@@ -34,7 +33,7 @@ public class GameSpawner : MonoBehaviour
     //spawn all chapters of the game
     private IEnumerator SpawnChapters()
     {
-       for(int levelIndex = 0; levelIndex < chapterPack.Length; levelIndex++)
+       for(int levelIndex = startingChapter - 1; levelIndex < chapterPack.Length; levelIndex++)
         {
             var currentChapter = chapterPack[levelIndex];
 
@@ -64,7 +63,7 @@ public class GameSpawner : MonoBehaviour
         var levels = chapter.GetLevels();
         var timeBetweenLevels = chapter.GetTimeBetweenLevels();
 
-        for (int levelIndex = 0; levelIndex < levels.Length; levelIndex++)
+        for (int levelIndex = startingLevel - 1; levelIndex < levels.Length; levelIndex++)
         {
             var currentLevel = levels[levelIndex];
 
@@ -169,7 +168,8 @@ public class GameSpawner : MonoBehaviour
 
     private void SetLevel()
     {
-        session.SetCurrentLevel(0);
+        session.SetCurrentLevel(startingLevel);
+        FindObjectOfType<LevelDisplay>().UpdateLevel();
     }
 
     private IEnumerator SpawnPlayer()

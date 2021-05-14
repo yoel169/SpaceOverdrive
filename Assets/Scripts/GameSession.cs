@@ -5,9 +5,9 @@ using UnityEngine;
 public class GameSession : MonoBehaviour
 {
     int score = 0;
-    int currentLevelIndex = 0;
     bool levelSet = false; //to avoid reseting the level every time, only needed once
     bool win = false;
+    int currentLevel = 1;
 
     [Header("Player")]
     [SerializeField]  Player myPlayer;
@@ -104,7 +104,7 @@ public class GameSession : MonoBehaviour
     {
         if(!levelSet)
         {
-            currentLevelIndex = level;
+            currentLevel = level;
             levelSet = true;
 
         }
@@ -115,17 +115,17 @@ public class GameSession : MonoBehaviour
     {
 
         score = 0;
-        currentLevelIndex = 0;
+        currentLevel = 1;
     }
 
     public int GetCurrentLevel()
     {
-        return currentLevelIndex + 1;
+        return currentLevel;
     }
 
     public void IncreaseLevel()
     {    
-        currentLevelIndex ++;
+        currentLevel ++;
         FindObjectOfType<LevelDisplay>().UpdateLevel();
     }
 
