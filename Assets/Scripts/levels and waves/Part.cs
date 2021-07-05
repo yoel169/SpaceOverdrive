@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Create Part")] 
+[CreateAssetMenu(menuName = "Create Part")]
 public class Part : ScriptableObject
 {
     [SerializeField] GameObject enemy;
@@ -11,13 +11,13 @@ public class Part : ScriptableObject
     [SerializeField] float spawnRandomFactor = 0.3f;
     [SerializeField] int numberOfEnemies = 5;
     [SerializeField] float moveSpeedAddition = 0f;
-
-    public List<Transform> GetWaypoints() 
+    [SerializeField] float partDelay = 0f;
+    public List<Transform> GetWaypoints()
     {
         var waypoints = new List<Transform>();
 
         //add each waypoint to waypoints var from prefab parent
-        foreach(Transform child in pathPrefab.transform)
+        foreach (Transform child in pathPrefab.transform)
         {
 
             waypoints.Add(child);
@@ -26,16 +26,25 @@ public class Part : ScriptableObject
         return waypoints;
     }
 
-    public GameObject GetEnemyPrefab(){ return enemy; }
+    public GameObject GetEnemyPrefab() { return enemy; }
     public float GetTimeBetweenSpawns() { return timeBetweenSpawns; }
     public float GetspawnRandomFactor() { return spawnRandomFactor; }
-
     public int GetnumberOfEnemies() { return numberOfEnemies; }
     public float GetmoveSpeed() {
 
-        return moveSpeedAddition + enemy.GetComponent<Enemy>().GetMoveSpeed(); 
-    
+        if (enemy.GetComponent<Enemy>() == null)
+        {
+            return moveSpeedAddition + enemy.GetComponent<Orbital>().GetMoveSpeed();
+        }
+        else
+        {
+            return moveSpeedAddition + enemy.GetComponent<Enemy>().GetMoveSpeed();
+        }
     }
 
+    public bool GetLooping() {
+        return pathPrefab.GetComponent<Pathing>().GetLoop();
+    }
 
+    public float GetDelay() { return partDelay;}
 }

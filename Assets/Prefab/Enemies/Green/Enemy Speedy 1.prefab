@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -9037735562677314345}
   - component: {fileID: 4984162816943826401}
   m_Layer: 7
-  m_Name: Enemy Speedy
+  m_Name: Enemy Speedy 1
   m_TagString: Green
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,11 +144,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cd9fd4a0da2e9a4a9e38b5a13c7fe11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  scoreToGive: 5
+  health: 25
+  scoreToGive: 2
   moveSpeed: 8
+  type: 0
+  diff: 0
   minBetweenShots: 0.2
-  maxBetweenShots: 3
+  maxBetweenShots: 1
   projectileSpeed: -10
   laserPrefab: {fileID: 4348509766458908978, guid: 73bc435ad2c87cd4284d3646b9cf7816, type: 3}
   particleExplosionPrefab: {fileID: 4278989927037525870, guid: 550c4a2dd9950374fac03cebf0f95f4f, type: 3}
@@ -190,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5392a7aac68b347b6e27bb8d2a87d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 25
 --- !u!114 &4984162816943826401
 MonoBehaviour:
   m_ObjectHideFlags: 0

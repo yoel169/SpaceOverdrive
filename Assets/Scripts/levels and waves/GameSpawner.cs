@@ -15,15 +15,25 @@ public class GameSpawner : MonoBehaviour
     [SerializeField] AudioClip nextLevelAudio;
     [SerializeField] AudioClip winAudio;
     [SerializeField] AudioClip spawnAudio;
+    [SerializeField] AudioClip livesUp;
 
     GameSession session;
     GameObject enemies;
+    Player player;
+
+    //counters
     int partCounter = 0;
+    float healthCounter;
+    int livesCounter;
+
+    WaveDisplayer waveDisp;
+    LevelDisplay lvDisp;
 
     // Start is called before the first frame update
     IEnumerator Start()
     {
-
+        waveDisp = FindObjectOfType<WaveDisplayer>();
+        lvDisp = FindObjectOfType<LevelDisplay>();
         session = FindObjectOfType<GameSession>();
         enemies = GameObject.Find("Enemies");
         yield return StartCoroutine(SpawnPlayer());
@@ -67,6 +77,9 @@ public class GameSpawner : MonoBehaviour
         {
             var currentLevel = levels[levelIndex];
 
+            livesCounter = player.GetCurrentLives();
+            healthCounter = player.GetHealth();
+
             yield return StartCoroutine(SpawnWaves(currentLevel));
 
             AudioSource.PlayClipAtPoint(nextLevelAudio, Camera.main.transform.position);  
@@ -75,6 +88,14 @@ public class GameSpawner : MonoBehaviour
 
             if(levelIndex + 1 != levels.Length){
                 session.IncreaseLevel();
+                lvDisp.UpdateLevel();
+            }
+
+            if(player.GetCurrentLives() >= livesCounter && player.GetHealth() >= healthCounter)
+            {
+                player.IncreaseLives();
+                print("Player won a life!");
+                AudioSource.PlayClipAtPoint(livesUp, Camera.main.transform.position);
             }
             
         }
@@ -87,16 +108,21 @@ public class GameSpawner : MonoBehaviour
     private IEnumerator SpawnWaves(Level currentLevel)
 
     {
-         var waves = currentLevel.GetWaves();
+        var waves = currentLevel.GetWaves();
+
+        waveDisp.SetMaxWaves(waves.Length);
+
         var timeBetweenWaves = currentLevel.GetTimeBetweenWaves();
 
         for (int waveIndex = 0; waveIndex < waves.Length; waveIndex++)
         {
             var currentWave = waves[waveIndex];
 
-            yield return StartCoroutine(SpawnRounds(currentWave));
+            yield return StartCoroutine(SpawnParts(currentWave));
 
             yield return StartCoroutine(DetectEnemies(timeBetweenWaves));
+
+            waveDisp.UpdateWave();
         }
 
         print("All waves done for this level");
@@ -104,17 +130,20 @@ public class GameSpawner : MonoBehaviour
     }
 
     //spawn all rounds of enemies in a wave
-    private IEnumerator SpawnRounds(Wave wave)
+    private IEnumerator SpawnParts(Wave wave)
 
     {
         var parts = wave.GetParts();
 
         for (int waveIndex = 0; waveIndex < parts.Length; waveIndex++)
         {
-            var currentEnemy = parts[waveIndex];
+            var currentPart = parts[waveIndex];
 
-            StartCoroutine(SpawnEnemies(currentEnemy));
-           
+            yield return new WaitForSeconds(currentPart.GetDelay());
+
+            StartCoroutine(SpawnEnemies(currentPart));
+            
+            print("part spawned");
         }
 
         yield return StartCoroutine(WaitForParts(parts.Length));
@@ -177,12 +206,18 @@ public class GameSpawner : MonoBehaviour
 
         if (session.GetPlayerPreFab() != null)
         {
+            print("spawning player");
 
-            SetLevel();
+            //SetLevel();
+            //FindObjectOfType<LevelDisplay>().UpdateLevel();
 
             yield return new WaitForSeconds(0.5f);
 
-            Instantiate(session.GetPlayerPreFab(), new Vector3(0f, -7f, 1f), Quaternion.identity);
+            GameObject playero = Instantiate(session.GetPlayerPreFab(), new Vector3(0f, -7f, 1f), Quaternion.identity);
+
+            player = playero.GetComponent<Player>();
+
+            session.SetSpanwedPlayer(playero);
 
             print("Player Spawned!");
 
@@ -192,5 +227,14 @@ public class GameSpawner : MonoBehaviour
 
             yield return StartCoroutine(SpawnChapters());
         }
+        else
+        {
+            print("player prefab null!");
+        }
+    }
+
+    public void AddScore(int sc)
+    {
+        player.IncreaseSuper(sc);
     }
 }

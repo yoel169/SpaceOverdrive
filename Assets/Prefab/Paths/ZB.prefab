@@ -39,6 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4160997833252689506}
+  - component: {fileID: -1465492062940113302}
   m_Layer: 0
   m_Name: ZB
   m_TagString: Paths
@@ -67,6 +68,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-1465492062940113302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077141828394319443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6d3d902e3aa01448919d3bec6c1e43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loops: 0
 --- !u!1 &2621786052275927480
 GameObject:
   m_ObjectHideFlags: 0

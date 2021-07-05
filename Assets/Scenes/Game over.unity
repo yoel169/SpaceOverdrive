@@ -10271,7 +10271,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 6268112759613750424, guid: 7f1e4c39335b6804781ee70f2656b4a8, type: 3}
         m_TargetAssemblyTypeName: SceneSelector, Assembly-CSharp
-        m_MethodName: PickPlayer
+        m_MethodName: LoadPickPlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10385,7 +10385,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Main Menu
+  m_text: main menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4594d74416ced404582aac19c5c3f9cd, type: 2}
   m_sharedMaterial: {fileID: 1043115586619658242, guid: 4594d74416ced404582aac19c5c3f9cd, type: 2}
@@ -10529,7 +10529,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play Again
+  m_text: play again
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4594d74416ced404582aac19c5c3f9cd, type: 2}
   m_sharedMaterial: {fileID: 1043115586619658242, guid: 4594d74416ced404582aac19c5c3f9cd, type: 2}
@@ -10676,7 +10676,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Over
+  m_text: game over
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4594d74416ced404582aac19c5c3f9cd, type: 2}
   m_sharedMaterial: {fileID: 1043115586619658242, guid: 4594d74416ced404582aac19c5c3f9cd, type: 2}
@@ -10818,7 +10818,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6268112759613750424, guid: 7f1e4c39335b6804781ee70f2656b4a8, type: 3}
-        m_TargetAssemblyTypeName: Level, Assembly-CSharp
+        m_TargetAssemblyTypeName: SceneSelector, Assembly-CSharp
         m_MethodName: LoadMainMenu
         m_Mode: 1
         m_Arguments:

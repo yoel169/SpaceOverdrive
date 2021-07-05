@@ -16,14 +16,12 @@ public class WinText : MonoBehaviour
 
         if (win)
         {
-            text.text = "You Win";
+            text.text = "you win";
         }
         else
         {
-            text.text = "Game Over";
+            text.text = "game over";
         }
-
-        
     }
 
     // Update is called once per frame

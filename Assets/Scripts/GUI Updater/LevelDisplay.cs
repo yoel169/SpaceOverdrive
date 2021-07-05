@@ -6,14 +6,12 @@ using TMPro;
 public class LevelDisplay : MonoBehaviour
 {
     TextMeshProUGUI scoreText;
-    GameSession session;
+    int lv = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        scoreText = GetComponent<TextMeshProUGUI>();
-        session = FindObjectOfType<GameSession>();
-        scoreText.text = session.GetCurrentLevel().ToString();
+        scoreText = GetComponent<TextMeshProUGUI>();  
     }
 
     // Update is called once per frame
@@ -24,6 +22,17 @@ public class LevelDisplay : MonoBehaviour
 
     public void UpdateLevel()
     {
-        scoreText.text = session.GetCurrentLevel().ToString();
+       
+
+        try
+        {
+            lv++;
+            scoreText.text = lv.ToString();
+        }
+        catch
+        {
+            scoreText = GetComponent<TextMeshProUGUI>();
+        }
+       
     }
 }

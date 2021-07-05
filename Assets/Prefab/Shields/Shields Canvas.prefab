@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8615829454948060104}
   - component: {fileID: 2562831288076744605}
-  - component: {fileID: 4789850737751889444}
+  - component: {fileID: 1512094016389632379}
   m_Layer: 5
   m_Name: Health Bar
   m_TagString: Untagged
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4789850737751889444
+--- !u!114 &1512094016389632379
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.05882351, g: 0.86086035, b: 0.9372549, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.96470594, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -204,7 +204,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3157276246504852337}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.8519446}
   m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_Children:
@@ -214,7 +214,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.04, y: -0.8}
+  m_AnchoredPosition: {x: 0.039993286, y: -0.7999878}
   m_SizeDelta: {x: 84.4867, y: 15.1376}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1558277466930532786
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.058823533, g: 0.86274517, b: 0.93725497, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.96346426, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

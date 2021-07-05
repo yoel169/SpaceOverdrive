@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2487474297232130379}
-  - component: {fileID: 4504548922018989627}
+  - component: {fileID: 428473388}
   m_Layer: 0
   m_Name: Game Spawner
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4504548922018989627
+--- !u!114 &428473388
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,10 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8d45575163757644b939381a74d810a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chapterPack:
-  - {fileID: 11400000, guid: 8041938a6a13a984a86e2aa216b03611, type: 2}
-  timeBetweenLevels: 1
-  timeBetweenWaves: 0
+  chapterPack: []
+  startingChapter: 1
+  startingLevel: 1
   nextLevelAudio: {fileID: 8300000, guid: 0941e0d556810ea438baf99b495e8612, type: 3}
   winAudio: {fileID: 8300000, guid: 88268ce9dcf1068459c113d27e479625, type: 3}
   spawnAudio: {fileID: 8300000, guid: 326730cf9878f3b44851450be268778d, type: 3}
+  livesUp: {fileID: 8300000, guid: 73c0ed8ad29b49c4f963c9fde51753d8, type: 3}

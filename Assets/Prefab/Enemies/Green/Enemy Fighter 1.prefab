@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -9037735562677314345}
   - component: {fileID: 1419669480846164900}
   m_Layer: 7
-  m_Name: Enemy Fighter
+  m_Name: Enemy Fighter 1
   m_TagString: Green
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,6 +153,8 @@ MonoBehaviour:
   health: 300
   scoreToGive: 10
   moveSpeed: 6
+  type: 0
+  diff: 0
   minBetweenShots: 0.2
   maxBetweenShots: 3
   projectileSpeed: -10

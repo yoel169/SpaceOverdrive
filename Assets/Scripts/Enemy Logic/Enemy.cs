@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] float health = 100;
     [SerializeField] int scoreToGive = 5;
     [SerializeField] float moveSpeed = 1f;
+    [SerializeField] int type = 0;
+    [SerializeField] int diff = 0;
 
     [Header("Shooting")]
     float shotCounter;

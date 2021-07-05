@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Wave 1-2-8
   m_EditorClassIdentifier: 
   parts:
-  - {fileID: 11400000, guid: 656abcc2578eded4ea99f41bb8333208, type: 2}
-  - {fileID: 11400000, guid: d525f1d9b93e43e4db50e807268eea75, type: 2}
+  - {fileID: 11400000, guid: 205f7c4ff258d3949a00eaa684ab2885, type: 2}
+  - {fileID: 11400000, guid: 7292224a112ebef47894f72e87cc9d27, type: 2}
   - {fileID: 11400000, guid: bfec9fffad18b094ca984cc0de568317, type: 2}

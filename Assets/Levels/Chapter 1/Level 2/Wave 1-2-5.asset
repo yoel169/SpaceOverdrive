@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Wave 1-2-5
   m_EditorClassIdentifier: 
   parts:
-  - {fileID: 11400000, guid: 5bf057c4fd86e514cbe7bc02a9451cfb, type: 2}
+  - {fileID: 11400000, guid: 3a6509937d0afb14e98f0868a099428e, type: 2}
   - {fileID: 11400000, guid: aac209516f061c84c8937fee10f51516, type: 2}

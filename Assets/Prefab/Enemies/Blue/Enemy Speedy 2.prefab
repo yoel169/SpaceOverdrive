@@ -144,10 +144,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cd9fd4a0da2e9a4a9e38b5a13c7fe11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 50
   scoreToGive: 5
   moveSpeed: 8
-  minBetweenShots: 0.1
+  type: 0
+  diff: 0
+  minBetweenShots: 0.2
   maxBetweenShots: 1
   projectileSpeed: -12
   laserPrefab: {fileID: 4348509766458908978, guid: b43f11f1e5d7b7d40bbb870cc3a3ded8, type: 3}
@@ -190,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5392a7aac68b347b6e27bb8d2a87d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 50
 --- !u!114 &4984162816943826401
 MonoBehaviour:
   m_ObjectHideFlags: 0

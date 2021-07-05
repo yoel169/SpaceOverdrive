@@ -29,12 +29,13 @@ public class SceneSelector : MonoBehaviour
     public void PlayAgain()
     {
         FindObjectOfType<GameSession>().ResetSesh();
-        SceneManager.LoadScene("Pick Player");
+        SceneManager.LoadScene("Pick Ship");
     }
 
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("Main Menu");
+        FindObjectOfType<GameSession>().ResetGame();
     }
 
     public void Quit()
@@ -42,9 +43,40 @@ public class SceneSelector : MonoBehaviour
         Application.Quit();
     }
 
-    public void PickPlayer()
+    public void LoadPickPlayer()
+    {
+       
+        SceneManager.LoadScene("Pick Ship");
+    }
+
+    public void LoadLSScreen()
     {
         FindObjectOfType<GameSession>().ResetGame();
-        SceneManager.LoadScene("Pick Player");
+        SceneManager.LoadScene("Save Load Menu");
+    }
+
+    public void LoadPlayerHUb()
+    {
+        SceneManager.LoadScene("Player Hub");
+    }
+
+    public void LoadLoading()
+    {
+        SceneManager.LoadScene("Loading");
+    }
+
+    public void LoadLobby()
+    {
+        SceneManager.LoadScene("Lobby");
+    }
+
+    public void LoadMGame()
+    {
+        SceneManager.LoadScene("M Game");
+    }
+
+    public void LoadHowTo()
+    {
+        SceneManager.LoadScene("HowTo");
     }
 }

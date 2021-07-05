@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -9037735562677314345}
   - component: {fileID: 278922939349683791}
   m_Layer: 7
-  m_Name: Enemy Orbital
+  m_Name: Enemy Orbital 1
   m_TagString: Green
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,6 +148,8 @@ MonoBehaviour:
   health: 500
   scoreToGive: 30
   moveSpeed: 5
+  type: 0
+  diff: 0
   minBetweenShots: 0.2
   maxBetweenShots: 3
   projectileSpeed: -10
@@ -191,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5392a7aac68b347b6e27bb8d2a87d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 100
+  damage: 200
 --- !u!114 &278922939349683791
 MonoBehaviour:
   m_ObjectHideFlags: 0
